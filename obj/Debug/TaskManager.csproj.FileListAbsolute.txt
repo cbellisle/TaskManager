@@ -1,0 +1,14 @@
+C:\Users\1259809181117005\source\repos\TaskManager\bin\Debug\TaskManager.exe.config
+C:\Users\1259809181117005\source\repos\TaskManager\bin\Debug\TaskManager.exe
+C:\Users\1259809181117005\source\repos\TaskManager\bin\Debug\TaskManager.pdb
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.AddEvent.resources
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.LoginPage.resources
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.NewUser.resources
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.Properties.Resources.resources
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.TaskPage.resources
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.TaskView.resources
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.csproj.GenerateResource.cache
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.csproj.CoreCompileInputs.cache
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.exe
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.pdb
+C:\Users\1259809181117005\source\repos\TaskManager\obj\Debug\TaskManager.csproj.AssemblyReference.cache
