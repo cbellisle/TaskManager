@@ -24,8 +24,7 @@ namespace TaskManager
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+           
 
 
 
@@ -75,8 +74,9 @@ namespace TaskManager
                             
                             text.Close();
 
-
-                            var pbkdf2 = new Rfc2898DeriveBytes(passwordBox.Text, salt, 100000);
+                            byte[] salt;
+                            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+                            var pbkdf2 = new Rfc2898DeriveBytes(passwordBox.Text, salt, 1000);
                             byte[] hash = pbkdf2.GetBytes(20);
 
                             byte[] hashBytes = new byte[36];
@@ -109,20 +109,24 @@ namespace TaskManager
 
                     if (nameBox.Text == reader.ReadLine())
                     {
+                        byte[] salt;
+                        new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
                         string savedPw = password.ReadLine();
                         byte[] hashBytes = Convert.FromBase64String(savedPw);
 
                         /* Get the salt */
-                        byte[] salty = new byte[16];
-                        Array.Copy(hashBytes, 0, salty, 0, 16);
+                        salt = new byte[16];
+                        Array.Copy(hashBytes, 0, salt, 0, 16);
 
                         /* Compute the hash on the password the user entered */
-                        var pbkdf2 = new Rfc2898DeriveBytes(passwordBox.Text, salty, 10000);
+                        var pbkdf2 = new Rfc2898DeriveBytes(passwordBox.Text, salt, 1000);
                         byte[] hash = pbkdf2.GetBytes(20);
 
                         /* Compare the results */
 
                         for (int i = 0; i < 20; i++)
+                        {
                             if (hashBytes[i + 16] != hash[i])
                             {
                                 MessageBox.Show("Incorrect login information");
@@ -131,13 +135,14 @@ namespace TaskManager
                             else
                             {
 
-
                                 reader.ReadLine();//skip second line
                                 Int32.TryParse(reader.ReadLine(), out currentTasks);
                                 reader.Close();
                                 loggedIn(currentUser, currentTasks);
 
                             }
+                        }
+                            
                     }
                       
 
