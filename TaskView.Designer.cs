@@ -71,6 +71,7 @@ namespace TaskManager
             this.taskNameBox.Name = "taskNameBox";
             this.taskNameBox.Size = new System.Drawing.Size(491, 26);
             this.taskNameBox.TabIndex = 2;
+            this.taskNameBox.TextChanged += new System.EventHandler(this.taskNameBox_TextChanged);
             // 
             // descBox
             // 

@@ -26,6 +26,7 @@ namespace TaskManager
         private string currentUser;
         private string currentTask;
         private string currentDesc;
+
         private int thisTask;
         private int userTasks;
 
@@ -88,22 +89,38 @@ namespace TaskManager
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            editButton.Visible = true;
+            if (taskNameBox.TextLength < 1)
+            {
+                MessageBox.Show("Please enter a task!");
 
-            saveButton.Visible = false;
-            taskNameBox.Enabled = false;
-            descBox.Enabled = false;
-            datePicker.Enabled = false;
+            }
+            else if (taskNameBox.Text.Contains('/') || taskNameBox.Text.Contains('\\'))
+                MessageBox.Show("A task cannot contain '/' or '\\'. Please change this character");
+            else
+            {
+                editButton.Visible = true;
+
+                saveButton.Visible = false;
+                taskNameBox.Enabled = false;
+                descBox.Enabled = false;
+                datePicker.Enabled = false;
 
 
-            string path = $"C:/Users/1259809181117005/source/repos/TaskManager/bin/Debug/users/{currentUser}/task{thisTask}.txt";
-            StreamWriter task = new StreamWriter(path);
-            task.WriteLine(currentUser);
-            task.WriteLine(taskNameBox.Text);
-            task.WriteLine(descBox.Text);
-            task.WriteLine(datePicker.Value);
-            task.Close();
+                string path = $"C:/Users/1259809181117005/source/repos/TaskManager/bin/Debug/users/{currentUser}/task{thisTask}.txt";
+                StreamWriter task = new StreamWriter(path);
+                task.WriteLine(currentUser);
+                task.WriteLine(taskNameBox.Text);
+                task.WriteLine(descBox.Text);
+                task.WriteLine(datePicker.Value);
+                task.Close();
+            }    
+           
 
+
+        }
+
+        private void taskNameBox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
